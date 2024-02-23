@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(255, 203, 255); 
+    color: rgb(86, 23, 107)
+ }
+ 
+ h1{
+    text-align: center;
+    color: rgb(86, 23, 107);
+ }
+ .wiadomosc{
+   padding: 2px;
+   background-color: rgb(193, 186, 186);
+   border: 2px rgb(58, 57, 57) solid;
+   margin: 1px;
+ }
+ .moja_wiadomosc{
+   padding: 2px;
+   background-color: rgb(216, 155, 247);
+   border: 2px rgb(58, 57, 57) solid;
+   margin: 1px;
+ }
+
+ .form{
+   padding: 5px;
+   border: 3px solid black;
+   margin: 5px;
+   text-align: center;
+   align-content: center;
+   align-items: center;
+ }
+
+ .napis{
+   padding: 5px;
+   border: 3px solid black;
+   margin: 5px;
+   text-align: center;
+   align-content: center;
+ }
+
+ .pliki{
+   align-items: center;
+   text-align: center;
+ }
