@@ -1,0 +1,43 @@
+*{
+    font-family: Garamond;
+}
+
+header{
+    background-color: saddlebrown;
+    color: white;
+    text-align: center;
+    height: 50px;
+}
+
+.lewy{
+    background-color: tan;
+    height: 500px;
+    width: 40%;
+}
+.kolumna{
+    background-color: tan;
+    height: 250px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    background-color: saddlebrown;
+    color: white;
+}
+
+.flex{
+    display: flex;
+    background-color: tan;
+}
+
+.form{
+    background-color: saddlebrown;
+    color:white;
+    padding: 10px 30px;
+}
+
+p::before{
+    content:"STATUS: ";
+}
