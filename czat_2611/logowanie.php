@@ -1,20 +1,78 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>For your safety this page has been restricted</title>
-<style type="text/css">
-html, body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Logowanie</title>
+    <script>
+                function myFunction() {
+                var x = document.getElementById("haslo");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+} 
+    </script>
 </head>
-<body>
-<iframe src="https://family.qustodio.com/block-page/?r=time-range&p=IOg7sAC6jkEP7U24Qu9GtcqSb%2BEVpmA%2BrjPklr8P7c70k6EmRtIpqMD0re1wqDfFj4QtegqkYuUplrcWlZvmhMCRIf9%2B5YeMGjTY7bAjcytJN7iRGOB2jvkP0LRHX4W35KPTahgOkk6NVNQT0Y79DZUsJGhF39JWhGuJBlrnwxkfZ7CEDO9yXnZvrY6SLclbvdOufUmnAPC7iCSmimXf54XrwqbGER4CrHEZwm9N22WNgjfE87pRp7wfJ%2FrIHk4AEQX%2BeJQlDaf1b6L52BzzQBTkmJrrM05B7OF8ttp6kJMISASsHSFIATIIfC%2FoPUQGTj%2FcgrzvRoTna3gk6Bkv6g%3D%3D" width="100%" height="100%" frameborder="0" scrolling="auto" ></iframe>
+
+<body class="logowanie">
+    <h1>Logowanie</h1>
+    <div class="form_log">
+        <form action="" method="post" class="form" name="logowanie">
+        <label for="login">login: <br><input type="text" name="login" id="login"><br/></label>
+        <label for="haslo">haslo: <br><input type="password" name="haslo" id="haslo"><br/></label>
+        <label for="zaloguj"><input type="submit" value="zaloguj"></label>
+        </form>
+    </div>
+
+        <p>Nie masz konta? <a href="rejestracja.php">Zarejestruj się</a></p>
+    <?php
+        //error_reporting(255);
+        session_start();
+       
+        if(!empty($_POST['login']) && !empty($_POST['haslo'])){
+ 
+            if (isset($_POST['login'])){
+                $login = $_POST['login'];
+            }
+
+
+            if (isset($_POST['haslo'])){
+                $haslo = $_POST['haslo'];
+            }
+
+            $connect = mysqli_connect("localhost","root","","czat");
+        
+            if (isset($_POST['login'])){
+                $haslo = sha1($_POST['haslo']);
+            }
+
+            $query = "SELECT * FROM uzytkownicy where login='$login' && haslo='$haslo'";
+            $result = mysqli_query($connect, $query);
+            $row = mysqli_fetch_array($result);
+
+            if (!empty($row['login'])) {
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['login'] = $row['login'];
+                mysqli_close($connect);
+                $protocol = 'http'.(!empty($_SERVER['HTTPS']) ? 's' : '');
+                $url = $protocol.'://'.$_SERVER['SERVER_NAME'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'));
+                header('Location: '.$url.'/czat.php');
+            }
+
+            else {
+                echo("Nieprawidłowy login lub hasło");
+            }
+        
+            mysqli_close($connect);
+            
+    } else {
+        echo "Wszystkie pola muszą zostać wypełnione";
+ }
+    ?>
+     
 </body>
 </html>
