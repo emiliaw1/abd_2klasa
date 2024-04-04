@@ -23,7 +23,7 @@
     $_SESSION['b'] = $_POST['b'];
     $_SESSION['c'] = $_POST['c'];
     header('Content-Type: image/png');
-    imagepng($image, "wykres.png");
+    imagepng($image, "wykr.png");
     imagepng($image);
     imagedestroy($image);
     header("Location: wykres.php");
