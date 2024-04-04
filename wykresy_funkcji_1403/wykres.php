@@ -21,7 +21,7 @@
         <input type="submit" value="Rysuj" name="rysuj">
     </form>
     <?php
-        echo '<img src="wykres.png" alt="tu ma być układ"/>';
+        echo '<img src="wykr.png" alt="tu ma być układ"/>';
         session_start();
         $a = $_SESSION['a'];
         $b = $_SESSION['b'];
