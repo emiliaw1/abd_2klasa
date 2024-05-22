@@ -1,0 +1,50 @@
+.tytul{
+    text-align: center;
+    font-size: 36px;
+    background-color: rgb(203, 255, 255);
+}
+
+.uslugi{
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(203, 222, 255);
+}
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    text-decoration: none;
+    color: darkblue;
+    background-color: rgb(203, 222, 255);
+    padding: 10px;
+    border: 1px solid rgb(2, 0, 29);
+    margin: 10px;
+}
+
+.punkt{
+    display: flex;
+    align-items: center;
+    font-size: 48px;
+}
+
+.punkty{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(206, 238, 255);
+}
+
+.logowanie{
+    align-items: center;
+    background-color: rgb(241, 169, 169);
+}
+
+.rejestracja{
+    align-items: center;
+    background-color: rgb(241, 169, 169);
+}
+
+.zapisy{
+    align-items: center;
+    background-color: rgb(241, 169, 169);
+}
